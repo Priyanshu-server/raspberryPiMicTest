@@ -1,0 +1,4 @@
+__pycache__
+.ipynb_checkpoints
+model.h5
+output.wav
