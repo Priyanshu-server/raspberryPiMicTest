@@ -8,6 +8,7 @@ from collections import defaultdict
 import tensorflow as tf
 import time 
 import pandas as pd
+from genCorrHeat import save_heatmap
 
 
 connections_arr = []
@@ -86,11 +87,10 @@ if __name__ == "__main__":
         time.sleep(5)
         counter += 1
 
-
-        if counter == 25:
-            print("SHAPE :: ",np.asarray(connections_arr).shape)
-            df = pd.DataFrame(data = connections_arr,columns = categorical.values())
-            df.to_csv('raw_data.csv', index=False)
-            
+        
+        print("SHAPE :: ",np.asarray(connections_arr).shape)
+        df = pd.DataFrame(data = connections_arr,columns = categorical.values())
+        df.to_csv('raw_data.csv', index=False)
+        save_heatmap(f"{counter}")
 
 
